@@ -1,11 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pre entrega 2  Turnos de 14 a 16</title>
+    <title>Turnos Médicos</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .contenedor {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .especialidad {
+            text-align: center;
+            width: 30%;
+            margin: 10px;
+            position: relative;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+        p {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+        .horarios-container {
+            margin-top: 10px;
+            display: none;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+        }
+    </style>
 </head>
 <body>
-    <SCript src="./js/master.js"></SCript>
+    <h1>Adjudicación de Turnos</h1>
+
+    <div class="especialidad">
+        <img src="./images/pediatria-1024x634.jpg.webp" alt="Pediatría" width="300" height="200" onclick="mostrarHorarios(this, 'Pediatría')">
+        <p>Pediatría</p>
+        <div class="horarios-container"></div>
+    </div>
+    <div class="especialidad">
+        <img src="./images/dermatologia.jpeg" alt="Dermatología" width="300" height="200" onclick="mostrarHorarios(this, 'Dermatología')">
+        <p>Dermatología</p>
+        <div class="horarios-container"></div>
+    </div>
+    <div class="especialidad">
+        <img src="./images/descarga (1).jpeg" alt="Cirugía" width="300" height="200" onclick="mostrarHorarios(this, 'Cirugía')">
+        <p>Cirugía</p>
+        <div class="horarios-container"></div>
+    </div>
+
+    <div id="turnos"></div>
+
+    <!-- Vincula el archivo externo de JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 </html>
