@@ -42,6 +42,14 @@
             padding: 10px;
             font-size: 1em;
         }
+        .mensaje {
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: green;
+        }
+        .mensaje.error {
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -50,22 +58,39 @@
     <div class="especialidad">
         <img src="./images/pediatria-1024x634.jpg.webp" alt="Pediatría" width="300" height="200" onclick="mostrarHorarios(this, 'Pediatría')">
         <p>Pediatría</p>
-        <div class="horarios-container"></div>
+        <div class="horarios-container">
+            <input type="text" id="nombre-pediatria" placeholder="Ingrese su nombre para Pediatría">
+            <select id="horarios-select-pediatria"></select>
+            <button onclick="confirmarTurno('Pediatría', 'nombre-pediatria', 'horarios-select-pediatria')">Confirmar Turno</button>
+        </div>
     </div>
     <div class="especialidad">
         <img src="./images/dermatologia.jpeg" alt="Dermatología" width="300" height="200" onclick="mostrarHorarios(this, 'Dermatología')">
         <p>Dermatología</p>
-        <div class="horarios-container"></div>
+        <div class="horarios-container">
+            <input type="text" id="nombre-dermatologia" placeholder="Ingrese su nombre para Dermatología">
+            <select id="horarios-select-dermatologia"></select>
+            <button onclick="confirmarTurno('Dermatología', 'nombre-dermatologia', 'horarios-select-dermatologia')">Confirmar Turno</button>
+        </div>
     </div>
     <div class="especialidad">
         <img src="./images/descarga (1).jpeg" alt="Cirugía" width="300" height="200" onclick="mostrarHorarios(this, 'Cirugía')">
         <p>Cirugía</p>
-        <div class="horarios-container"></div>
+        <div class="horarios-container">
+            <input type="text" id="nombre-cirugia" placeholder="Ingrese su nombre para Cirugía">
+            <select id="horarios-select-cirugia"></select>
+            <button onclick="confirmarTurno('Cirugía', 'nombre-cirugia', 'horarios-select-cirugia')">Confirmar Turno</button>
+        </div>
     </div>
 
-    <div id="turnos"></div>
+    <div id="turnos">
+        <h2>Turnos Asignados</h2>
+        <ul id="lista-turnos"></ul>
+    </div>
 
-    <!-- Vincula el archivo externo de JavaScript -->
+    <!-- Mensaje de retroalimentación para el usuario -->
+    <p id="mensaje" class="mensaje"></p>
+
     <script src="js/main.js"></script>
 </body>
 </html>
