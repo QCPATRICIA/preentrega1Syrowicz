@@ -23,7 +23,7 @@
             width: 100%;
             height: auto;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(72, 177, 177);
             transition: transform 0.3s ease;
         }
         img:hover {
@@ -45,41 +45,52 @@
         .mensaje {
             margin-top: 20px;
             font-size: 1.1em;
-            color: green;
+            color: rgba(72, 177, 177);
         }
         .mensaje.error {
             color: red;
+        }
+        #clock {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(72, 177, 177);
         }
     </style>
 </head>
 <body>
     <h1>Adjudicación de Turnos</h1>
 
-    <div class="especialidad">
-        <img src="./images/pediatria-1024x634.jpg.webp" alt="Pediatría" width="300" height="200" onclick="mostrarHorarios(this, 'Pediatría')">
+    <div class="especialidad" data-especialidad="Pediatría">
+        <img src="./images/pediatria-1024x634.jpg.webp" alt="Pediatría" width="300" height="200">
         <p>Pediatría</p>
         <div class="horarios-container">
             <input type="text" id="nombre-pediatria" placeholder="Ingrese su nombre para Pediatría">
             <select id="horarios-select-pediatria"></select>
-            <button onclick="confirmarTurno('Pediatría', 'nombre-pediatria', 'horarios-select-pediatria')">Confirmar Turno</button>
+            <button class="btn-confirmar" data-especialidad="Pediatría" data-nombre="nombre-pediatria" data-horario="horarios-select-pediatria">Confirmar Turno</button>
         </div>
     </div>
-    <div class="especialidad">
-        <img src="./images/dermatologia.jpeg" alt="Dermatología" width="300" height="200" onclick="mostrarHorarios(this, 'Dermatología')">
+    <div class="especialidad" data-especialidad="Dermatología">
+        <img src="./images/dermatologia.jpeg" alt="Dermatología" width="300" height="200">
         <p>Dermatología</p>
         <div class="horarios-container">
             <input type="text" id="nombre-dermatologia" placeholder="Ingrese su nombre para Dermatología">
             <select id="horarios-select-dermatologia"></select>
-            <button onclick="confirmarTurno('Dermatología', 'nombre-dermatologia', 'horarios-select-dermatologia')">Confirmar Turno</button>
+            <button class="btn-confirmar" data-especialidad="Dermatología" data-nombre="nombre-dermatologia" data-horario="horarios-select-dermatologia">Confirmar Turno</button>
         </div>
     </div>
-    <div class="especialidad">
-        <img src="./images/descarga (1).jpeg" alt="Cirugía" width="300" height="200" onclick="mostrarHorarios(this, 'Cirugía')">
+    <div class="especialidad" data-especialidad="Cirugía">
+        <img src="./images/descarga (1).jpeg" alt="Cirugía" width="300" height="200">
         <p>Cirugía</p>
         <div class="horarios-container">
             <input type="text" id="nombre-cirugia" placeholder="Ingrese su nombre para Cirugía">
             <select id="horarios-select-cirugia"></select>
-            <button onclick="confirmarTurno('Cirugía', 'nombre-cirugia', 'horarios-select-cirugia')">Confirmar Turno</button>
+            <button class="btn-confirmar" data-especialidad="Cirugía" data-nombre="nombre-cirugia" data-horario="horarios-select-cirugia">Confirmar Turno</button>
         </div>
     </div>
 
@@ -91,6 +102,9 @@
     <!-- Mensaje de retroalimentación para el usuario -->
     <p id="mensaje" class="mensaje"></p>
 
+    <div id="clock">Cargando...</div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
